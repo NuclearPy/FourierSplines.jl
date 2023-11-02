@@ -77,6 +77,26 @@ function Base.:+(P1::FourierSpline, P2::FourierSpline)
     end
 end
 
+function Base.:+(P::FourierSpline, S::Spline)
+    if P.knots == S.knots
+        PS = copy(P)
+        PS[:,0] += S
+        return PS
+    else
+        return error("Knots must be the same")
+    end
+end
+
+function Base.:+(S::Spline, P::FourierSpline)
+    if P.knots == S.knots
+        PS = copy(P)
+        PS[:,0] += S
+        return PS
+    else
+        return error("Knots must be the same")
+    end
+end
+
 Base.:*(α::Number, P::FourierSpline) = FourierSpline(P.knots, α*P.series)
 Base.:*(P::FourierSpline, α::Number) = FourierSpline(P.knots, α*P.series)
 
