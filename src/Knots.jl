@@ -1,5 +1,5 @@
 struct Knots{T<:Real}
-    knots :: Vector{T}
+    knots :: Union{Vector{T}, UnitRange{T}}
     order::Int
 end
 

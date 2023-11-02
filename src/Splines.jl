@@ -146,7 +146,7 @@ end
 Base.log(b::Real, S::Spline) = Spline(S.knots, log.(b,S.coefficients))
 
 # Evaluating Splines
-function eval(S::Spline, t::Real)
+function evaluate(S::Spline, t::Real)
     if order(S) != 1
         return error("Evaluation not yet supported for orders other than 1")
     else

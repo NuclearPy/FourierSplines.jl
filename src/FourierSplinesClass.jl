@@ -131,7 +131,7 @@ function truncate(P::FourierSpline{T}, fourierN::Int) where {T}
 end
 
 # Evaluation
-function eval(P::FourierSpline, θ::Real)
+function evaluate(P::FourierSpline, θ::Real)
     N = lastindex(P)
     fourierExp = 2 * π * θ * im
     val = real.(sum(P[:, n] * exp(fourierExp * n) for n = -N:N))
@@ -145,7 +145,7 @@ function (P::FourierSpline)(θ::Real)
     return Spline(P.knots, val)
 end
 
-function eval(P::FourierSpline, θ::Real, t::Real)
+function evaluate(P::FourierSpline, θ::Real, t::Real)
     return P(θ)(t)
 end
 
