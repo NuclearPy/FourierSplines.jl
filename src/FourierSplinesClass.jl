@@ -134,15 +134,15 @@ end
 function evaluate(P::FourierSpline, θ::Real)
     N = lastindex(P)
     fourierExp = 2 * π * θ * im
-    val = real.(sum(P[:, n] * exp(fourierExp * n) for n = -N:N))
-    return Spline(P.knots, val)
+    val = sum(P[:, n] * exp(fourierExp * n) for n = -N:N)
+    return val
 end
 
 function (P::FourierSpline)(θ::Real)
     N = lastindex(P)
     fourierExp = 2 * π * θ * im
-    val = real.(sum(P[:, n] * exp(fourierExp * n) for n = -N:N))
-    return Spline(P.knots, val)
+    val = sum(P[:, n] * exp(fourierExp * n) for n = -N:N)
+    return val
 end
 
 function evaluate(P::FourierSpline, θ::Real, t::Real)
