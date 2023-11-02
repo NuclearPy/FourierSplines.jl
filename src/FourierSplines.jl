@@ -50,8 +50,8 @@ function degree(S::Spline)
     return degree(S.knots)
 end
 
-LinearAlgebra.norm(S::Spline) = norm(S.coefficients, Inf)
-LinearAlgebra.norm(S::Spline, p::Real) = norm(S.coefficients, p)
+LinearAlgebra.norm(S::Spline) = LinearAlgebra.norm(S.coefficients, Inf)
+LinearAlgebra.norm(S::Spline, p::Real) = LinearAlgebra.norm(S.coefficients, p)
 
 # Utilities and basic operators
 
