@@ -1,5 +1,5 @@
 module FourierSplines
-export Spline, Knots, knots, coefficients, degree, order, dimension, eval, FourierSpline, truncate
+export Spline, Knots, knots, coefficients, degree, order, dimension, eval, FourierSpline, truncate, norm
 
 import LinearAlgebra
 
