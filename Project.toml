@@ -1,0 +1,13 @@
+name = "FourierSplines"
+uuid = "d709082b-8abe-4141-8575-f536bec2ac9a"
+authors = ["Adam Zaidan <azaidan2020@fau.edu>"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
