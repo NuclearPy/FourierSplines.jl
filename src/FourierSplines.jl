@@ -1,11 +1,14 @@
 module FourierSplines
-export Spline, Knots, knots, coefficients, degree, order, dimension, eval, FourierSpline, truncate, norm
-
 import LinearAlgebra
 
 include("Knots.jl")
 include("Splines.jl")
+export Spline, Knots, knots, coefficients, degree, order, dimension, evaluate, FourierSpline, truncate
+
 include("FourierSplinesClass.jl")
+export FourierSpline, truncate
+
 include("LinAlgExt.jl")
+export SplineLinOp, norm, inv, det
 
 end
