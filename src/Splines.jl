@@ -139,7 +139,7 @@ function Base.:^(S1::Spline, S2::Spline)
 end
 
 # Elementary function evaluations
-for f ∈ [:sin, :cos, :tan, :sec, :csc, :cot, :exp, :log, :conj, :sqrt, :abs]
+for f ∈ [:sin, :cos, :tan, :sec, :csc, :cot, :exp, :log, :conj, :sqrt, :abs, :real, :imag]
     @eval Base.$f(S::Spline) = Spline(S.knots, $f.(S.coefficients))
 end
 
