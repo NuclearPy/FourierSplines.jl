@@ -38,9 +38,17 @@ Base.parent(S::Spline) = S.coefficients
 Base.parent(K::Knots) = K.knots
 Base.length(S::Spline) = length(S.coefficients)
 Base.size(S::Spline) = size(S.coefficients)
-Base.getindex(S::Spline, i::Int) = S.coefficients[i]
-Base.setindex!(S::Spline, val::Number, i::Int) = (S.coefficients[i] = val)
+
+#get index
+Base.getindex(S::Spline, i) = S.coefficients[i]
+
+#set index
+Base.setindex!(S::Spline, val, i) = (S.coefficients[i] = val)
+
 Base.axes(S::Spline) = 1:length(S.coefficients)
+indices(S::Spline) = 1:length(S.coefficients)
+Base.firstindex(S::Spline) = 1
+Base.lastindex(S::Spline) = length(S.coefficients)
 
 function locateIndex(S::Spline,t::Real)
     k = knots(S)
